@@ -29,4 +29,3 @@ Cameras and code handle aiming and keep controls simple. Drivers can play the ma
 Intake feeds the shooter. Climb doesn’t kill scoring. Code makes it usable. And the team kept fixing weak parts.
 
 **9 — Close**  
-That’s why Enzo is the best. Questions?
