@@ -57,24 +57,24 @@
     }
     h1 {
       font-family: Fraunces, Georgia, serif;
-      font-size: clamp(2rem, 8vw, 3.4rem);
-      line-height: 1.05;
+      font-size: clamp(2rem, 8vw, 3.2rem);
+      line-height: 1.08;
       margin: 0;
       font-weight: 700;
     }
     h1.brand { color: var(--brass); font-size: clamp(3.4rem, 16vw, 5.5rem); }
     .lead, p, li {
       color: var(--cream);
-      font-size: clamp(1.05rem, 4.2vw, 1.25rem);
+      font-size: clamp(1.1rem, 4.4vw, 1.3rem);
       line-height: 1.4;
       margin: 0;
     }
     .muted { color: var(--muted); }
     ul {
       margin: 0;
-      padding-left: 1.1rem;
+      padding-left: 1.15rem;
       display: grid;
-      gap: 0.7rem;
+      gap: 0.85rem;
     }
     .cards {
       display: grid;
@@ -90,11 +90,11 @@
       margin: 0 0 6px;
       color: var(--brass);
       font-family: Fraunces, Georgia, serif;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
     }
     .reasons {
       display: grid;
-      gap: 10px;
+      gap: 12px;
     }
     .reason {
       display: grid;
@@ -178,103 +178,103 @@
     <section class="slide active">
       <div class="kicker">Team 1577 Steampunk · FRC Crescendo</div>
       <h1 class="brand">ENZO</h1>
-      <p class="lead">Why Enzo is the best robot of FRC Crescendo</p>
-      <p class="muted">A design-first argument · 5–7 minutes · no results</p>
+      <p class="lead">Why Enzo is the best robot in Crescendo</p>
+      <p class="muted">A short talk about smart design · about 5–7 minutes</p>
     </section>
 
     <section class="slide">
-      <div class="kicker">Meet the robot</div>
-      <h1>Enzo, built by Steampunk</h1>
+      <div class="kicker">Who is Enzo?</div>
+      <h1>Meet the robot</h1>
       <div class="cards">
-        <div class="card"><h3>Who</h3><p>Team 1577 Steampunk — Aviv High School, Raanana — Crescendo competition robot.</p></div>
-        <div class="card"><h3>Game</h3><p>Collect Notes, score Speaker &amp; Amp, finish on Stage under defense and time pressure.</p></div>
-        <div class="card"><h3>Lens</h3><p>Design quality only: strategy, fit, adaptability, alliance value — never match tallies.</p></div>
+        <div class="card"><h3>The team</h3><p>Enzo was built by FRC Team 1577, Steampunk, from Raanana, Israel.</p></div>
+        <div class="card"><h3>The game</h3><p>Crescendo is like a sports match for robots: pick up foam rings called Notes, score them, and climb at the end.</p></div>
+        <div class="card"><h3>Our focus</h3><p>We’ll talk about how Enzo was designed — not about game scores.</p></div>
       </div>
     </section>
 
     <section class="slide">
-      <div class="kicker">Problem space</div>
-      <h1>What Crescendo demanded</h1>
+      <div class="kicker">The challenge</div>
+      <h1>What robots had to do</h1>
       <ul>
-        <li>Forgiving Note acquisition under contact</li>
-        <li>Speaker cycles plus Amp leverage for the alliance</li>
-        <li>Stage presence without wrecking teleop scoring</li>
-        <li>Mobility that survives defense</li>
-        <li>Software drivers can trust</li>
+        <li>Pick up Notes from the floor quickly</li>
+        <li>Shoot them into a big goal (the Speaker)</li>
+        <li>Also put Notes in a side goal (the Amp)</li>
+        <li>Climb onto a chain at the end of the match</li>
+        <li>Keep moving even when other robots get in the way</li>
       </ul>
     </section>
 
     <section class="slide">
-      <div class="kicker">Definition</div>
-      <h1>How we define “best”</h1>
+      <div class="kicker">What “best” means</div>
+      <h1>Not flashiest — smartest</h1>
       <ul>
-        <li><strong>Strategy clarity</strong> — every subsystem serves one plan</li>
-        <li><strong>Cycle quality</strong> — short, stable intake → score</li>
-        <li><strong>Role flexibility</strong> — scorer, cleaner, or endgame partner</li>
-        <li><strong>Iteration courage</strong> — redesign when the field teaches better</li>
-        <li><strong>Driver trust</strong> — hard things feel ordinary</li>
+        <li>Has a clear plan for the whole game</li>
+        <li>Picks up and scores Notes smoothly</li>
+        <li>Can help the team in more than one way</li>
+        <li>Gets better when the team finds problems</li>
+        <li>Is easy for the drivers to control</li>
       </ul>
     </section>
 
     <section class="slide">
-      <div class="kicker">Design culture</div>
-      <h1>Rebuilt when it had to be</h1>
-      <p>After early district play, Steampunk chose a substantial redesign.</p>
-      <p class="muted">Best robots aren’t frozen at first CAD. They update when reality disagrees — and that discipline is rarer than clever parts.</p>
+      <div class="kicker">Improving the robot</div>
+      <h1>They weren’t afraid to change it</h1>
+      <p>Midway through the season, the team rebuilt big parts of Enzo.</p>
+      <p class="muted">That means they listened to what wasn’t working and fixed it. Great engineering looks like that — not giving up on the first idea.</p>
     </section>
 
     <section class="slide">
-      <div class="kicker">Subsystem thesis</div>
-      <h1>Notes first: possession is power</h1>
-      <p>In Crescendo, the robot that owns Notes controls tempo.</p>
-      <p class="muted">Enzo’s architecture is organized around uninterrupted Note flow — every possession becomes an alliance asset.</p>
+      <div class="kicker">Picking up game pieces</div>
+      <h1>If you can’t grab Notes, you can’t score</h1>
+      <p>Enzo is built around getting Notes fast and keeping them under control.</p>
+      <p class="muted">In this game, owning the Notes is like owning the basketball. Enzo was made to take that job seriously.</p>
     </section>
 
     <section class="slide">
       <div class="kicker">Scoring</div>
-      <h1>Speaker threat + Amp utility</h1>
+      <h1>Two ways to score, one robot</h1>
       <ul>
-        <li>Speaker capability creates continuous cycle pressure</li>
-        <li>Amp capability turns coordination into leverage</li>
-        <li>Drivers choose the right action under congestion</li>
-        <li>Versatility in chaos — not one highlight shot</li>
+        <li>It can shoot into the Speaker for regular scoring</li>
+        <li>It can also score in the Amp to help its alliance</li>
+        <li>Drivers can pick the better option when the field is crowded</li>
+        <li>Being flexible is better than only being good at one thing</li>
       </ul>
     </section>
 
     <section class="slide">
-      <div class="kicker">Endgame</div>
-      <h1>Stage-ready without compromise</h1>
-      <p>Climbing only matters if the robot can still score for most of the match.</p>
-      <p class="muted">Enzo protects cycle identity first, then adds Stage presence alliances can trust.</p>
+      <div class="kicker">The end of the match</div>
+      <h1>Climbing without breaking the plan</h1>
+      <p>Some robots try so hard to climb that they get worse at scoring.</p>
+      <p class="muted">Enzo stays strong at scoring during the match — and still can climb when it matters at the end.</p>
     </section>
 
     <section class="slide">
-      <div class="kicker">Human–machine loop</div>
-      <h1>Software makes Enzo feel inevitable</h1>
+      <div class="kicker">Driving the robot</div>
+      <h1>Good code makes hard jobs feel easy</h1>
       <ul>
-        <li>State-aware workflows cut button chaos</li>
-        <li>Vision turns “almost lined up” into “ready”</li>
-        <li>Honest autonomous feedback builds teleop trust</li>
-        <li>When drivers trust the robot, strategy expands</li>
+        <li>Helps the robot aim and score more consistently</li>
+        <li>Gives drivers clear controls instead of button chaos</li>
+        <li>Uses cameras/sensors so the robot “sees” the field</li>
+        <li>When drivers trust the robot, they can play smarter</li>
       </ul>
     </section>
 
     <section class="slide">
-      <div class="kicker">The argument</div>
+      <div class="kicker">The big idea</div>
       <h1>Why Enzo is the best</h1>
       <div class="reasons">
-        <div class="reason"><div class="num">1</div><p>Answers Crescendo’s real problem: Notes, dual scoring, Stage</p></div>
-        <div class="reason"><div class="num">2</div><p>Rebuilt with courage when the field demanded better</p></div>
-        <div class="reason"><div class="num">3</div><p>Prioritizes possession quality</p></div>
-        <div class="reason"><div class="num">4</div><p>Stays versatile: Speaker + Amp</p></div>
-        <div class="reason"><div class="num">5</div><p>Closes the loop with software drivers trust</p></div>
+        <div class="reason"><div class="num">1</div><p>It was built for the whole Crescendo game, not just one trick</p></div>
+        <div class="reason"><div class="num">2</div><p>The team rebuilt it when they needed to</p></div>
+        <div class="reason"><div class="num">3</div><p>It focuses on grabbing and controlling Notes</p></div>
+        <div class="reason"><div class="num">4</div><p>It can score in more than one way</p></div>
+        <div class="reason"><div class="num">5</div><p>The software helps drivers do the hard parts</p></div>
       </div>
     </section>
 
     <section class="slide">
-      <div class="kicker">Close</div>
-      <h1>Enzo is best because it was designed to be.</h1>
-      <p class="muted">Not because of a bracket — because Steampunk built clear strategy, fearless iteration, and a machine drivers and alliances can trust.</p>
+      <div class="kicker">Wrap-up</div>
+      <h1>Enzo is best because of how it was built.</h1>
+      <p class="muted">Clear plan. Willing to improve. Easy to drive. Ready for the whole game.</p>
       <p style="color:var(--brass);font-family:Fraunces,Georgia,serif;font-size:1.4rem;margin-top:8px;">Questions?</p>
     </section>
   </div>

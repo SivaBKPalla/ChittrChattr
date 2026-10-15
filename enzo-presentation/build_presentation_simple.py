@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Simpler PPTX tuned for Google Slides mobile conversion."""
+"""Simpler PPTX: 9th-grade language, Google Slides friendly."""
 
 from pathlib import Path
 
 from pptx import Presentation
 from pptx.dml.color import RGBColor
-from pptx.enum.text import PP_ALIGN
 from pptx.util import Inches, Pt
 
 BG = RGBColor(20, 22, 26)
@@ -58,68 +57,68 @@ def build() -> Path:
         {
             "kicker": "TEAM 1577 STEAMPUNK  ·  FRC CRESCENDO",
             "title": "ENZO",
-            "body": "Why Enzo is the best robot of FRC Crescendo\nA design-first argument  ·  5–7 minutes",
-            "notes": "Open with the brand. No scoreboards — design only.",
+            "body": "Why Enzo is the best robot in Crescendo\nA short talk about smart design  ·  about 5–7 minutes",
+            "notes": "Say the robot name clearly. This talk is about design, not scores.",
         },
         {
-            "kicker": "MEET THE ROBOT",
-            "title": "Enzo, built by Steampunk",
-            "body": "FRC Team 1577 — Aviv High School, Raanana.\n\nCrescendo asks robots to collect Notes, score Speaker and Amp, and finish on Stage.\n\nToday we judge Enzo by design quality — never by match tallies.",
-            "notes": "Introduce Enzo and set the evaluation lens.",
+            "kicker": "WHO IS ENZO?",
+            "title": "Meet the robot",
+            "body": "Enzo was built by FRC Team 1577, Steampunk, from Raanana, Israel.\n\nCrescendo is like a sports match for robots: pick up foam rings called Notes, score them, and climb at the end.\n\nWe’ll talk about how Enzo was designed — not about game scores.",
+            "notes": "Keep this short. Introduce the team and the game in plain words.",
         },
         {
-            "kicker": "THE PROBLEM SPACE",
-            "title": "What Crescendo demanded",
-            "body": "• Forgiving Note acquisition under contact\n• Fast Speaker cycles plus Amp utility for the alliance\n• Stage presence without wrecking teleop scoring\n• Mobility that survives defense\n• Software drivers can trust",
-            "notes": "Walk the five demands. One-trick robots were not enough.",
+            "kicker": "THE CHALLENGE",
+            "title": "What robots had to do",
+            "body": "• Pick up Notes from the floor quickly\n• Shoot them into a big goal (the Speaker)\n• Also put Notes in a side goal (the Amp)\n• Climb onto a chain at the end of the match\n• Keep moving even when other robots get in the way",
+            "notes": "Explain Crescendo like explaining a new sport.",
         },
         {
-            "kicker": "DEFINITION",
-            "title": "How we define “best”",
-            "body": "Strategy clarity — every subsystem serves one game plan\nCycle quality — intake → control → score is short and stable\nRole flexibility — scorer, cleaner, or endgame partner\nIteration courage — redesign when the field teaches better\nDriver trust — hard things feel ordinary at the controls",
-            "notes": "This rubric is the rest of the talk.",
+            "kicker": "WHAT “BEST” MEANS",
+            "title": "Not flashiest — smartest",
+            "body": "• Has a clear plan for the whole game\n• Picks up and scores Notes smoothly\n• Can help the team in more than one way\n• Gets better when the team finds problems\n• Is easy for the drivers to control",
+            "notes": "These five points are our checklist for the rest of the talk.",
         },
         {
-            "kicker": "DESIGN CULTURE",
-            "title": "Enzo was rebuilt when it had to be",
-            "body": "After early district play, Steampunk chose a substantial redesign.\n\nBest robots are not frozen at first CAD.\nThey update when reality disagrees with the design.\n\nThat discipline is rarer than clever mechanisms — and more decisive.",
-            "notes": "Reference the public Enzo rebuild story without outcomes.",
+            "kicker": "IMPROVING THE ROBOT",
+            "title": "They weren’t afraid to change it",
+            "body": "Midway through the season, the team rebuilt big parts of Enzo.\n\nThat means they listened to what wasn’t working and fixed it.\n\nGreat engineering looks like that — not giving up on the first idea.",
+            "notes": "Praise the rebuild as smart teamwork, without talking about results.",
         },
         {
-            "kicker": "SUBSYSTEM THESIS",
-            "title": "Notes first: possession is power",
-            "body": "In Crescendo, the robot that owns Notes controls tempo.\n\nA best-in-class bot treats intake as reliability: wide capture, quick centering, clean handoff.\n\nEnzo’s architecture is organized around uninterrupted Note flow — every possession becomes an alliance asset.",
-            "notes": "Keep claims qualitative. Possession quality first.",
+            "kicker": "PICKING UP GAME PIECES",
+            "title": "If you can’t grab Notes, you can’t score",
+            "body": "Enzo is built around getting Notes fast and keeping them under control.\n\nIn this game, owning the Notes is like owning the basketball.\n\nEnzo was made to take that job seriously.",
+            "notes": "Use the basketball comparison if it helps the class.",
         },
         {
-            "kicker": "SCORING ARCHITECTURE",
-            "title": "Speaker threat + Amp utility",
-            "body": "• Speaker capability creates continuous cycle pressure\n• Amp capability turns alliance coordination into leverage\n• A unified package lets drivers choose under congestion\n• Enzo’s claim is versatility in chaos — not one highlight shot",
-            "notes": "Dual-mode scoring = decision freedom.",
+            "kicker": "SCORING",
+            "title": "Two ways to score, one robot",
+            "body": "• It can shoot into the Speaker for regular scoring\n• It can also score in the Amp to help its alliance\n• Drivers can pick the better option when the field is crowded\n• Being flexible is better than only being good at one thing",
+            "notes": "Stress flexibility in simple terms.",
         },
         {
-            "kicker": "ENDGAME",
-            "title": "Stage-ready without compromise",
-            "body": "Climbing only matters if the robot can still score for most of the match.\n\nDesigns that chase every endgame flourish often weaken teleop throughput.\n\nEnzo protects cycle identity first, then adds credible Stage presence alliances can trust.",
-            "notes": "Balance teleop identity with real endgame.",
+            "kicker": "THE END OF THE MATCH",
+            "title": "Climbing without breaking the plan",
+            "body": "Some robots try so hard to climb that they get worse at scoring.\n\nEnzo stays strong at scoring during the match — and still can climb when it matters at the end.",
+            "notes": "Balance: score first, climb later — but both matter.",
         },
         {
-            "kicker": "HUMAN–MACHINE LOOP",
-            "title": "Software makes Enzo feel inevitable",
-            "body": "Hardware sets the ceiling. Controls decide whether drivers reach it.\n\n• State-aware scoring workflows cut button chaos\n• Vision turns “almost lined up” into “ready to release”\n• Honest autonomous feedback makes teleop trustworthy\n• When drivers trust the robot, strategy expands",
-            "notes": "Software is the multiplier.",
+            "kicker": "DRIVING THE ROBOT",
+            "title": "Good code makes hard jobs feel easy",
+            "body": "• Helps the robot aim and score more consistently\n• Gives drivers clear controls instead of button chaos\n• Uses cameras and sensors so the robot “sees” the field\n• When drivers trust the robot, they can play smarter",
+            "notes": "Software = helpful tools for the human drivers.",
         },
         {
-            "kicker": "THE ARGUMENT",
+            "kicker": "THE BIG IDEA",
             "title": "Why Enzo is the best",
-            "body": "1. It answers Crescendo’s real problem: Notes, dual scoring, Stage\n2. It was rebuilt with courage when the field demanded better\n3. It prioritizes possession quality\n4. It stays versatile: Speaker pressure and Amp utility\n5. It closes the loop with software drivers can trust\n\nFive reasons — all design, no scoreboard.",
-            "notes": "Thesis slide. Pause between the five reasons.",
+            "body": "1. Built for the whole Crescendo game, not just one trick\n2. The team rebuilt it when they needed to\n3. Focuses on grabbing and controlling Notes\n4. Can score in more than one way\n5. Software helps drivers do the hard parts",
+            "notes": "Slow down and hit each of the five points.",
         },
         {
-            "kicker": "CLOSE",
-            "title": "Enzo is best because it was designed to be.",
-            "body": "Not because of a bracket.\nBecause Steampunk built clear strategy, fearless iteration, and a machine drivers — and alliances — can trust.\n\nQuestions?",
-            "notes": "Close and invite design questions only.",
+            "kicker": "WRAP-UP",
+            "title": "Enzo is best because of how it was built.",
+            "body": "Clear plan. Willing to improve. Easy to drive. Ready for the whole game.\n\nQuestions?",
+            "notes": "End here. Invite simple questions about design or the game.",
         },
     ]
 
@@ -127,8 +126,8 @@ def build() -> Path:
         s = prs.slides.add_slide(blank)
         fill_bg(s)
         add_text(s, 0.7, 0.45, 12, 0.4, data["kicker"], size=13, bold=True, color=BRASS)
-        add_text(s, 0.7, 1.0, 12, 1.4, data["title"], size=34, bold=True, color=CREAM)
-        add_text(s, 0.7, 2.6, 11.8, 3.8, data["body"], size=18, color=CREAM)
+        add_text(s, 0.7, 1.0, 12, 1.4, data["title"], size=32, bold=True, color=CREAM)
+        add_text(s, 0.7, 2.6, 11.8, 3.8, data["body"], size=20, color=CREAM)
         add_text(
             s,
             0.7,
