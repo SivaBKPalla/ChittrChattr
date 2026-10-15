@@ -17,7 +17,7 @@
       --cream: #f2ebdf;
       --muted: #a8a093;
       --line: #3a342c;
-      --img: https://raw.githubusercontent.com/SivaBKPalla/ChittrChattr/cursor/enzo-crescendo-presentation-a685/enzo-presentation/images;
+      --cdn: https://raw.githubusercontent.com/SivaBKPalla/ChittrChattr/cursor/enzo-crescendo-presentation-a685/enzo-presentation/images;
     }
     * { box-sizing: border-box; }
     html, body {
@@ -58,15 +58,13 @@
       display: none;
       position: absolute;
       inset: 0;
-      animation: in 240ms ease;
+      animation: in 220ms ease;
     }
     .slide.active { display: grid; }
     @keyframes in {
-      from { opacity: 0; transform: translateX(14px); }
+      from { opacity: 0; transform: translateX(12px); }
       to { opacity: 1; transform: none; }
     }
-
-    /* Title: full-bleed photo */
     .slide.hero {
       background-size: cover;
       background-position: center;
@@ -77,29 +75,27 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(10,11,14,.88) 0%, rgba(10,11,14,.45) 55%, rgba(10,11,14,.2) 100%);
+      background: linear-gradient(90deg, rgba(10,11,14,.9) 0%, rgba(10,11,14,.5) 55%, rgba(10,11,14,.2) 100%);
     }
     .slide.hero .copy {
       position: relative;
       z-index: 1;
       display: grid;
-      gap: 0.55rem;
-      max-width: 55%;
+      gap: 0.5rem;
+      max-width: 58%;
     }
-
-    /* Fact slides: text left, photo right */
     .slide.split {
-      grid-template-columns: 1.05fr 1fr;
-      gap: 0;
+      grid-template-columns: 1.08fr 1fr;
     }
     .slide.split .copy {
-      padding: 5% 4% 4% 5%;
+      padding: 4.5% 4% 4% 5%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 0.75rem;
+      gap: 0.65rem;
       background:
         radial-gradient(120% 90% at 8% 0%, #2a2218 0%, var(--bg) 55%, #0d0f12 100%);
+      min-width: 0;
     }
     .slide.split .photo {
       position: relative;
@@ -110,40 +106,38 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(20,22,26,.35), transparent 30%);
+      background: linear-gradient(90deg, rgba(20,22,26,.35), transparent 28%);
       pointer-events: none;
     }
-
     .kicker {
       color: var(--brass);
-      font-size: clamp(0.8rem, 1.4vw, 1rem);
+      font-size: clamp(0.78rem, 1.35vw, 0.95rem);
       letter-spacing: 0.14em;
       font-weight: 700;
       text-transform: uppercase;
     }
     h1 {
       font-family: Fraunces, Georgia, serif;
-      font-size: clamp(1.7rem, 3.5vw, 2.7rem);
+      font-size: clamp(1.55rem, 3.2vw, 2.45rem);
       line-height: 1.08;
       margin: 0;
     }
     h1.brand {
       color: var(--brass);
-      font-size: clamp(3.4rem, 8.5vw, 6rem);
+      font-size: clamp(3.2rem, 8vw, 5.8rem);
     }
     p, li {
       margin: 0;
-      font-size: clamp(1rem, 1.8vw, 1.3rem);
+      font-size: clamp(0.98rem, 1.65vw, 1.22rem);
       line-height: 1.35;
       color: var(--cream);
     }
     ul {
       margin: 0;
-      padding-left: 1.15rem;
+      padding-left: 1.1rem;
       display: grid;
-      gap: 0.45rem;
+      gap: 0.4rem;
     }
-
     .controls {
       flex-shrink: 0;
       display: flex;
@@ -152,7 +146,7 @@
       gap: 12px;
       padding: 0.65rem 1.1rem 0.85rem;
       border-top: 1px solid #2a2620;
-      background: rgba(10, 11, 14, 0.9);
+      background: rgba(10, 11, 14, 0.92);
       z-index: 2;
     }
     .progress {
@@ -189,12 +183,11 @@
       border-color: transparent;
     }
     .count {
-      min-width: 4rem;
+      min-width: 4.5rem;
       text-align: center;
       color: var(--muted);
       font-size: clamp(0.9rem, 1.4vw, 1rem);
     }
-
     @media (max-width: 900px) and (orientation: portrait) {
       .stage {
         width: 100%;
@@ -214,7 +207,8 @@
   <div class="stage-wrap">
     <div class="stage">
       <div class="deck" id="deck">
-        <section class="slide hero active" style="background-image:url('images/enzo-hero.jpg')">
+
+        <section class="slide hero active" data-img="enzo-hero.jpg">
           <div class="copy">
             <div class="kicker">Team 1577 Steampunk</div>
             <h1 class="brand">ENZO</h1>
@@ -224,70 +218,144 @@
 
         <section class="slide split">
           <div class="copy">
-            <div class="kicker">Quick intro</div>
-            <h1>Enzo is Steampunk’s robot</h1>
-            <p>Team 1577 is a high school robotics team from Raanana, Israel. Enzo is the robot they built for Crescendo.</p>
+            <div class="kicker">The team</div>
+            <h1>Built by students</h1>
+            <p>Team 1577 is called Steampunk. They are high school students from Raanana, Israel. They design, build, wire, and program their own robot.</p>
           </div>
-          <div class="photo" style="background-image:url('images/crescendo-field.jpg')"></div>
+          <div class="photo" data-img="rebuild-workshop.jpg"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">The robot</div>
+            <h1>Enzo is their Crescendo robot</h1>
+            <p>Enzo is the machine they built for the Crescendo season. Its job is to pick up Notes, score them, and climb.</p>
+          </div>
+          <div class="photo" data-img="enzo-hero.jpg"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">Notes</div>
+            <h1>Notes are foam rings</h1>
+            <p>The game pieces are orange foam rings called Notes. They sit on the floor and also come from human players. Enzo has to grab them cleanly before it can score.</p>
+          </div>
+          <div class="photo" data-img="note-closeup.jpg"></div>
         </section>
 
         <section class="slide split">
           <div class="copy">
             <div class="kicker">How the team worked</div>
-            <h1>They didn’t freeze the first design</h1>
-            <p>Mid-season, they ripped out big chunks of Enzo and rebuilt them.</p>
+            <h1>They rebuilt mid-season</h1>
+            <p>After early events, Steampunk took Enzo apart and rebuilt big sections. They changed the robot when the first version was not good enough.</p>
           </div>
-          <div class="photo" style="background-image:url('images/rebuild-workshop.jpg')"></div>
+          <div class="photo" data-img="rebuild-workshop.jpg"></div>
         </section>
 
         <section class="slide split">
           <div class="copy">
-            <div class="kicker">The intake</div>
-            <h1>Rollers in front pull Notes inside</h1>
-            <p>Notes are the foam rings on the floor. Enzo has spinning rollers on the front. Drive into a Note, and those rollers yank it up into the robot and keep it from falling back out.</p>
+            <div class="kicker">Drive</div>
+            <h1>Wheels that can move any direction</h1>
+            <p>Enzo uses swerve drive. Each wheel corner can point and roll the way the driver needs. That helps it turn fast, slide sideways, and line up for intakes or shots.</p>
           </div>
-          <div class="photo" style="background-image:url('images/intake-rollers.jpg')"></div>
+          <div class="photo" data-img="swerve-drive.jpg"></div>
         </section>
 
         <section class="slide split">
           <div class="copy">
-            <div class="kicker">The shooter</div>
-            <h1>Same robot, two scoring paths</h1>
-            <p>Once a Note is inside, Enzo can shoot it into the Speaker, or place it in the Amp for its partners.</p>
+            <div class="kicker">Intake — how</div>
+            <h1>Front rollers spin and pull</h1>
+            <p>On the front of Enzo are spinning rollers. When the robot drives into a Note, the rollers catch the foam ring and pull it up into the robot.</p>
           </div>
-          <div class="photo" style="background-image:url('images/shooter-scoring.jpg')"></div>
+          <div class="photo" data-img="intake-rollers.jpg"></div>
         </section>
 
         <section class="slide split">
           <div class="copy">
-            <div class="kicker">The climb</div>
-            <h1>They fitted climbing around scoring</h1>
-            <p>Enzo can hang on the chain at the end. The climb doesn’t wreck the scoring setup, so scoring still works the whole match.</p>
+            <div class="kicker">Intake — detail</div>
+            <h1>The Note stays trapped inside</h1>
+            <p>After the rollers grab the Note, the path inside holds it so it does not bounce back onto the floor. Drivers can keep moving while the Note is secured.</p>
           </div>
-          <div class="photo" style="background-image:url('images/climb-chain.jpg')"></div>
+          <div class="photo" data-img="note-path.jpg"></div>
         </section>
 
         <section class="slide split">
           <div class="copy">
-            <div class="kicker">The code</div>
-            <h1>The computer side does the annoying work</h1>
-            <p>Cameras and code help Enzo aim and keep controls simple for the drivers.</p>
+            <div class="kicker">Inside the robot</div>
+            <h1>Note path from front to shooter</h1>
+            <p>The Note travels from the front rollers through a short path to the shooter wheels. That handoff is what lets Enzo go from pickup to shot without stopping to reload by hand.</p>
           </div>
-          <div class="photo" style="background-image:url('images/cameras-code.jpg')"></div>
+          <div class="photo" data-img="note-path.jpg"></div>
         </section>
 
         <section class="slide split">
           <div class="copy">
-            <div class="kicker">Why it adds up</div>
-            <h1>The parts were built to fit together</h1>
+            <div class="kicker">Shooter — Speaker</div>
+            <h1>Flywheels launch Notes into the Speaker</h1>
+            <p>Spinning shooter wheels fling the Note into the Speaker, the big goal. Enzo can do this after the Note has been pulled in from the floor.</p>
+          </div>
+          <div class="photo" data-img="shooter-scoring.jpg"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">Shooter — Amp</div>
+            <h1>Same robot can score the Amp</h1>
+            <p>Enzo can also place a Note into the Amp for its partners. That second path means the drivers can choose Speaker or Amp based on what the field looks like.</p>
+          </div>
+          <div class="photo" data-img="amp-score.jpg"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">Climb — how</div>
+            <h1>Hooks catch the chain</h1>
+            <p>Near the end of a match, Enzo can hook onto the stage chain and lift itself up. The climb hardware is built onto the same robot that still scores Notes.</p>
+          </div>
+          <div class="photo" data-img="climb-chain.jpg"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">Climb — detail</div>
+            <h1>Climbing did not kill scoring</h1>
+            <p>The climb was fitted so the intake and shooter still work during the match. Scoring stays usable until it is time to hang.</p>
+          </div>
+          <div class="photo" data-img="parts-together.jpg"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">Cameras</div>
+            <h1>Sensors help Enzo see the field</h1>
+            <p>Cameras on the robot watch tags and goals on the field. That data helps Enzo aim and know where it is while driving.</p>
+          </div>
+          <div class="photo" data-img="cameras-code.jpg"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">Code</div>
+            <h1>Software keeps controls simple</h1>
+            <p>Code on the robot and driver station handles aiming helpers and button actions. Drivers use controllers; the code does the fiddly timing and targeting work.</p>
+          </div>
+          <div class="photo" data-img="drivers.jpg"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">Why the design works</div>
+            <h1>Every part feeds the next</h1>
             <ul>
-              <li>Intake feeds the shooter cleanly</li>
-              <li>Shooter can still work even with a climb on the robot</li>
-              <li>Code makes those parts easier to use in a real match</li>
-              <li>When something was weak, the team rebuilt it</li>
+              <li>Swerve lines Enzo up for pickups and shots</li>
+              <li>Intake pulls Notes in and holds them</li>
+              <li>Path moves Notes to the shooter</li>
+              <li>Shooter can hit Speaker or Amp</li>
+              <li>Climb hangs without removing those jobs</li>
+              <li>Cameras and code make the drivers’ job easier</li>
             </ul>
           </div>
-          <div class="photo" style="background-image:url('images/parts-together.jpg')"></div>
+          <div class="photo" data-img="parts-together.jpg"></div>
         </section>
 
         <section class="slide split">
@@ -295,42 +363,35 @@
             <div class="kicker">Close</div>
             <h1>That’s why Enzo is the best.</h1>
             <ul>
-              <li>Front rollers pull in Notes</li>
-              <li>Shoots Speakers and scores Amps</li>
+              <li>Rebuilt when parts were weak</li>
+              <li>Swerve + strong intake</li>
+              <li>Two scoring paths</li>
               <li>Climb that leaves scoring intact</li>
-              <li>Cameras and code for aiming and control</li>
-              <li>Mid-season rebuilds when parts were weak</li>
+              <li>Cameras and code for control</li>
             </ul>
           </div>
-          <div class="photo" style="background-image:url('images/enzo-hero.jpg')"></div>
+          <div class="photo" data-img="enzo-hero.jpg"></div>
         </section>
+
       </div>
 
       <div class="controls">
         <button id="prev" type="button">Back</button>
         <div class="progress" aria-hidden="true"><span id="bar"></span></div>
-        <div class="count" id="count">1 / 9</div>
+        <div class="count" id="count">1 / 17</div>
         <button id="next" class="primary" type="button">Next</button>
       </div>
     </div>
   </div>
 
   <script>
-    // Make image paths work on htmlpreview.github.io AND local/raw GitHub
-    (function fixImages() {
-      const base = 'https://raw.githubusercontent.com/SivaBKPalla/ChittrChattr/cursor/enzo-crescendo-presentation-a685/enzo-presentation/';
-      const onPreview = location.hostname.includes('htmlpreview') || location.hostname.includes('githubusercontent') === false && location.protocol.startsWith('http') && !location.hostname.includes('localhost');
-      document.querySelectorAll('[style*="images/"]').forEach((el) => {
-        el.style.backgroundImage = el.style.backgroundImage.replace(
-          /url\(['"]?images\//g,
-          `url('${base}images/`
-        ).replace(/\.jpg'\)/, '.jpg') // noop safety
-        ;
-        // cleaner replace
-        const m = el.getAttribute('style').match(/url\(['"]?(images\/[^)'"]+)['"]?\)/);
-        if (m) el.style.backgroundImage = `url('${base}${m[1]}')`;
-      });
-    })();
+    const CDN = 'https://raw.githubusercontent.com/SivaBKPalla/ChittrChattr/cursor/enzo-crescendo-presentation-a685/enzo-presentation/images/';
+    document.querySelectorAll('[data-img]').forEach((el) => {
+      const url = `url('${CDN}${el.dataset.img}')`;
+      if (el.classList.contains('photo') || el.classList.contains('hero') || el.classList.contains('slide')) {
+        el.style.backgroundImage = url;
+      }
+    });
 
     const slides = [...document.querySelectorAll('.slide')];
     let i = 0;
