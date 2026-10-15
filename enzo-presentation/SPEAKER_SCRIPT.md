@@ -1,38 +1,35 @@
-# Speaker script (~5–6 minutes)
+# Speaker script (plain words)
 
-Simple words. No game scores.
+Talk about the robot only. No scores. No long rules lesson.
 
 ---
 
-**Slide 1 — Title (30s)**  
-Hi. Today I’m talking about **Enzo**, a robot from Team 1577, Steampunk. I’ll explain why Enzo is the best robot for Crescendo by talking about how it was built — not about scores.
+**1 — Title**  
+Today I’m talking about **Enzo**, the robot built by Team 1577 Steampunk. We’ll look at how it was built and why that makes it so good.
 
-**Slide 2 — Meet Enzo (30s)**  
-High school students in Raanana, Israel built Enzo. Crescendo is a robot sports game: pick up foam rings called Notes, score points, and climb at the end. We’ll talk about the design.
+**2 — Meet the builders**  
+High school students in Raanana, Israel built Enzo. It’s their Crescendo robot. Our focus is the design.
 
-**Slide 3 — The game (40s)**  
-Robots had to grab Notes, shoot into the Speaker, score in the Amp, climb a chain, and keep moving when other robots blocked them. The best robot has to handle the whole game.
+**3 — How they built it**  
+They planned first, built parts to work together, and when something was weak they took it apart and rebuilt it. Fixing problems is a big reason Enzo is strong.
 
-**Slide 4 — What “best” means (35s)**  
-Best doesn’t mean flashiest. It means: simple plan, smooth scoring, helpful in more than one way, gets fixed when needed, and easy to drive.
+**4 — Grab Notes**  
+Enzo’s intake grabs Notes fast and holds them. No Notes means no points, so this saves time and cuts mistakes.
 
-**Slide 5 — Making it better (35s)**  
-In the middle of the season, the team took Enzo apart and built big parts again. That’s smart. Good teams fix problems instead of sticking with a bad first idea.
+**5 — Score two ways**  
+Enzo can shoot into the Speaker and score in the Amp. Drivers can choose the better option when it’s crowded.
 
-**Slide 6 — Notes (30s)**  
-No Notes means no points. Having the Notes is like having the basketball. Enzo was made to grab them and keep them.
+**6 — Climb without hurting scoring**  
+The climb was added carefully so scoring still works. Enzo keeps both jobs working.
 
-**Slide 7 — Scoring (35s)**  
-Enzo can score two ways: Speaker shots and Amp scoring. That helps when the field is crowded.
+**7 — Drivers can trust it**  
+Code helps with aiming, simple controls, and cameras. Drivers can focus on the match.
 
-**Slide 8 — Climbing (30s)**  
-Some robots focus so hard on climbing that scoring gets worse. Enzo stays good at scoring and can still climb at the end.
+**8 — One full robot**  
+Drive, grabber, shooter, climb, and code were planned together. Parts help each other.
 
-**Slide 9 — Code (35s)**  
-Good computer code makes driving easier — better aiming, simpler controls, and cameras that help the robot “see.” When drivers trust the robot, they play better.
+**9 — Why Enzo is so good**  
+Clear plan. Real fixes. Great at Notes. Scores more than one way. Everything works as one system.
 
-**Slide 10 — Why Enzo (45s)**  
-Five reasons: built for the whole game, changed when needed, great at Notes, scores more than one way, and code that helps the drivers.
-
-**Slide 11 — Close (20s + Q&A)**  
-Enzo is best because of how it was built: simple plan, willing to change, easy to drive, ready for the whole game. Questions?
+**10 — Close**  
+Enzo is great because of how it was built. Questions?
