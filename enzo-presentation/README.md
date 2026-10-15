@@ -41,15 +41,15 @@ python3 build_presentation.py
 ## Contents (no results)
 
 1. Title — ENZO  
-2. Meet Enzo / Steampunk  
-3. What Crescendo demanded  
-4. How we define “best”  
-5. Rebuild culture  
-6. Notes / possession  
-7. Speaker + Amp versatility  
-8. Stage-ready balance  
-9. Software & drivers  
-10. Five-point argument  
+2. Meet the robot  
+3. What robots had to do  
+4. What “best” means  
+5. They changed Enzo when they had to  
+6. Grabbing Notes  
+7. Two ways to score  
+8. Climbing without messing up scoring  
+9. Good code makes driving easier  
+10. Why Enzo is the best  
 11. Close + Questions  
 
 ## Note on season year
