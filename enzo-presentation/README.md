@@ -4,9 +4,24 @@ A **5–7 minute** presentation about **Enzo**, FRC Team **1577 Steampunk**’s 
 
 This deck argues from **design quality only**. It does **not** include match results, rankings, awards, or scoreboard claims.
 
-## Open in Google Slides
+## Phone-friendly options (recommended)
 
-1. Upload `Enzo_Crescendo_Presentation.pptx` to [Google Drive](https://drive.google.com).
+**Option A — present in the browser (works now):**  
+Open this link on your phone:  
+https://htmlpreview.github.io/?https://github.com/SivaBKPalla/ChittrChattr/blob/cursor/enzo-crescendo-presentation-a685/enzo-presentation/enzo-slides.html  
+
+Tap **Next** or swipe. No Google Slides conversion needed.
+
+**Option B — Google Slides (simpler file):**  
+Use `Enzo_Crescendo_GoogleSlides.pptx` (simpler formatting for mobile conversion):  
+https://github.com/SivaBKPalla/ChittrChattr/raw/cursor/enzo-crescendo-presentation-a685/enzo-presentation/Enzo_Crescendo_GoogleSlides.pptx  
+
+Then in the **Drive app** (not the browser toast): find the file → ⋮ → **Open with** → **Google Slides**.  
+If it still says unable to open, use Option A — Google’s phone converter often fails on PowerPoint uploads.
+
+## Open in Google Slides (desktop)
+
+1. Upload `Enzo_Crescendo_GoogleSlides.pptx` to [Google Drive](https://drive.google.com).
 2. Right-click the file → **Open with** → **Google Slides**.
 3. Optional: **File → Save as Google Slides** to get a native `.gslides` copy you can share.
 
