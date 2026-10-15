@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>ENZO — Crescendo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #14161a;
+      --panel: #232833;
+      --brass: #c4964a;
+      --cream: #f2ebdf;
+      --muted: #a8a093;
+      --line: #3a342c;
+      --img: https://raw.githubusercontent.com/SivaBKPalla/ChittrChattr/cursor/enzo-crescendo-presentation-a685/enzo-presentation/images;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #0b0c0f;
+      color: var(--cream);
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .stage-wrap {
+      height: 100%;
+      width: 100%;
+      display: grid;
+      place-items: center;
+      padding:
+        max(12px, env(safe-area-inset-top))
+        max(14px, env(safe-area-inset-right))
+        max(18px, env(safe-area-inset-bottom))
+        max(14px, env(safe-area-inset-left));
+    }
+    .stage {
+      width: min(100%, calc((100vh - 36px) * 16 / 9));
+      aspect-ratio: 16 / 9;
+      max-height: calc(100vh - 36px);
+      background: var(--bg);
+      border: 1px solid #2a2620;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 18px 50px rgba(0,0,0,.45);
+      display: flex;
+      flex-direction: column;
+    }
+    .deck { flex: 1; position: relative; min-height: 0; }
+    .slide {
+      display: none;
+      position: absolute;
+      inset: 0;
+      animation: in 240ms ease;
+    }
+    .slide.active { display: grid; }
+    @keyframes in {
+      from { opacity: 0; transform: translateX(14px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    /* Title: full-bleed photo */
+    .slide.hero {
+      background-size: cover;
+      background-position: center;
+      place-items: end start;
+      padding: 6% 5% 5%;
+    }
+    .slide.hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(10,11,14,.88) 0%, rgba(10,11,14,.45) 55%, rgba(10,11,14,.2) 100%);
+    }
+    .slide.hero .copy {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.55rem;
+      max-width: 55%;
+    }
+
+    /* Fact slides: text left, photo right */
+    .slide.split {
+      grid-template-columns: 1.05fr 1fr;
+      gap: 0;
+    }
+    .slide.split .copy {
+      padding: 5% 4% 4% 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.75rem;
+      background:
+        radial-gradient(120% 90% at 8% 0%, #2a2218 0%, var(--bg) 55%, #0d0f12 100%);
+    }
+    .slide.split .photo {
+      position: relative;
+      min-height: 0;
+      background: #0a0b0d center/cover no-repeat;
+    }
+    .slide.split .photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(20,22,26,.35), transparent 30%);
+      pointer-events: none;
+    }
+
+    .kicker {
+      color: var(--brass);
+      font-size: clamp(0.8rem, 1.4vw, 1rem);
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.7rem);
+      line-height: 1.08;
+      margin: 0;
+    }
+    h1.brand {
+      color: var(--brass);
+      font-size: clamp(3.4rem, 8.5vw, 6rem);
+    }
+    p, li {
+      margin: 0;
+      font-size: clamp(1rem, 1.8vw, 1.3rem);
+      line-height: 1.35;
+      color: var(--cream);
+    }
+    ul {
+      margin: 0;
+      padding-left: 1.15rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .controls {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0.65rem 1.1rem 0.85rem;
+      border-top: 1px solid #2a2620;
+      background: rgba(10, 11, 14, 0.9);
+      z-index: 2;
+    }
+    .progress {
+      flex: 1;
+      height: 5px;
+      background: #2c2a26;
+      border-radius: 999px;
+      overflow: hidden;
+      max-width: 280px;
+    }
+    .progress > span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: var(--brass);
+      transition: width 200ms ease;
+    }
+    button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--cream);
+      border-radius: 999px;
+      padding: 0.6rem 1.2rem;
+      font: inherit;
+      font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+      font-weight: 600;
+      min-width: 96px;
+    }
+    button:disabled { opacity: 0.35; }
+    button.primary {
+      background: var(--brass);
+      color: #14161a;
+      border-color: transparent;
+    }
+    .count {
+      min-width: 4rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: clamp(0.9rem, 1.4vw, 1rem);
+    }
+
+    @media (max-width: 900px) and (orientation: portrait) {
+      .stage {
+        width: 100%;
+        aspect-ratio: auto;
+        height: 100%;
+        max-height: none;
+        border-radius: 0;
+        border: 0;
+      }
+      .stage-wrap { padding: 0; }
+      .slide.split { grid-template-rows: 1fr 1fr; grid-template-columns: 1fr; }
+      .slide.hero .copy { max-width: 90%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage-wrap">
+    <div class="stage">
+      <div class="deck" id="deck">
+        <section class="slide hero active" style="background-image:url('images/enzo-hero.jpg')">
+          <div class="copy">
+            <div class="kicker">Team 1577 Steampunk</div>
+            <h1 class="brand">ENZO</h1>
+            <p>Why this robot is so good</p>
+          </div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">Quick intro</div>
+            <h1>Enzo is Steampunk’s robot</h1>
+            <p>Team 1577 is a high school robotics team from Raanana, Israel. Enzo is the robot they built for Crescendo.</p>
+          </div>
+          <div class="photo" style="background-image:url('images/crescendo-field.jpg')"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">How the team worked</div>
+            <h1>They didn’t freeze the first design</h1>
+            <p>Mid-season, they ripped out big chunks of Enzo and rebuilt them.</p>
+          </div>
+          <div class="photo" style="background-image:url('images/rebuild-workshop.jpg')"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">The intake</div>
+            <h1>Rollers in front pull Notes inside</h1>
+            <p>Notes are the foam rings on the floor. Enzo has spinning rollers on the front. Drive into a Note, and those rollers yank it up into the robot and keep it from falling back out.</p>
+          </div>
+          <div class="photo" style="background-image:url('images/intake-rollers.jpg')"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">The shooter</div>
+            <h1>Same robot, two scoring paths</h1>
+            <p>Once a Note is inside, Enzo can shoot it into the Speaker, or place it in the Amp for its partners.</p>
+          </div>
+          <div class="photo" style="background-image:url('images/shooter-scoring.jpg')"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">The climb</div>
+            <h1>They fitted climbing around scoring</h1>
+            <p>Enzo can hang on the chain at the end. The climb doesn’t wreck the scoring setup, so scoring still works the whole match.</p>
+          </div>
+          <div class="photo" style="background-image:url('images/climb-chain.jpg')"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">The code</div>
+            <h1>The computer side does the annoying work</h1>
+            <p>Cameras and code help Enzo aim and keep controls simple for the drivers.</p>
+          </div>
+          <div class="photo" style="background-image:url('images/cameras-code.jpg')"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">Why it adds up</div>
+            <h1>The parts were built to fit together</h1>
+            <ul>
+              <li>Intake feeds the shooter cleanly</li>
+              <li>Shooter can still work even with a climb on the robot</li>
+              <li>Code makes those parts easier to use in a real match</li>
+              <li>When something was weak, the team rebuilt it</li>
+            </ul>
+          </div>
+          <div class="photo" style="background-image:url('images/parts-together.jpg')"></div>
+        </section>
+
+        <section class="slide split">
+          <div class="copy">
+            <div class="kicker">Close</div>
+            <h1>That’s why Enzo is the best.</h1>
+            <ul>
+              <li>Front rollers pull in Notes</li>
+              <li>Shoots Speakers and scores Amps</li>
+              <li>Climb that leaves scoring intact</li>
+              <li>Cameras and code for aiming and control</li>
+              <li>Mid-season rebuilds when parts were weak</li>
+            </ul>
+          </div>
+          <div class="photo" style="background-image:url('images/enzo-hero.jpg')"></div>
+        </section>
+      </div>
+
+      <div class="controls">
+        <button id="prev" type="button">Back</button>
+        <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+        <div class="count" id="count">1 / 9</div>
+        <button id="next" class="primary" type="button">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Make image paths work on htmlpreview.github.io AND local/raw GitHub
+    (function fixImages() {
+      const base = 'https://raw.githubusercontent.com/SivaBKPalla/ChittrChattr/cursor/enzo-crescendo-presentation-a685/enzo-presentation/';
+      const onPreview = location.hostname.includes('htmlpreview') || location.hostname.includes('githubusercontent') === false && location.protocol.startsWith('http') && !location.hostname.includes('localhost');
+      document.querySelectorAll('[style*="images/"]').forEach((el) => {
+        el.style.backgroundImage = el.style.backgroundImage.replace(
+          /url\(['"]?images\//g,
+          `url('${base}images/`
+        ).replace(/\.jpg'\)/, '.jpg') // noop safety
+        ;
+        // cleaner replace
+        const m = el.getAttribute('style').match(/url\(['"]?(images\/[^)'"]+)['"]?\)/);
+        if (m) el.style.backgroundImage = `url('${base}${m[1]}')`;
+      });
+    })();
+
+    const slides = [...document.querySelectorAll('.slide')];
+    let i = 0;
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    const count = document.getElementById('count');
+    const bar = document.getElementById('bar');
+
+    function show(n) {
+      i = Math.max(0, Math.min(slides.length - 1, n));
+      slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+      prev.disabled = i === 0;
+      next.textContent = i === slides.length - 1 ? 'Done' : 'Next';
+      count.textContent = `${i + 1} / ${slides.length}`;
+      bar.style.width = `${((i + 1) / slides.length) * 100}%`;
+    }
+
+    prev.addEventListener('click', (e) => { e.stopPropagation(); show(i - 1); });
+    next.addEventListener('click', (e) => { e.stopPropagation(); if (i < slides.length - 1) show(i + 1); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); show(i + 1); }
+      if (e.key === 'ArrowLeft') show(i - 1);
+    });
+
+    let x0 = null;
+    const deck = document.getElementById('deck');
+    deck.addEventListener('touchstart', (e) => { x0 = e.changedTouches[0].clientX; }, { passive: true });
+    deck.addEventListener('touchend', (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 50) show(i + (dx < 0 ? 1 : -1));
+      x0 = null;
+    }, { passive: true });
+    deck.addEventListener('click', (e) => {
+      const rect = deck.getBoundingClientRect();
+      if (e.clientX >= rect.left + rect.width / 2) show(i + 1);
+      else show(i - 1);
+    });
+
+    show(0);
+  </script>
+</body>
+</html>
