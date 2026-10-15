@@ -50,7 +50,7 @@ python3 build_presentation.py
 8. Climbing without messing up scoring  
 9. Good code makes driving easier  
 10. Why Enzo is the best  
-11. Close + Questions  
+11. Close  
 
 ## Note on season year
 

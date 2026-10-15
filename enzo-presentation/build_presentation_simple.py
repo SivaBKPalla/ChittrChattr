@@ -116,7 +116,7 @@ def build() -> Path:
         {
             "kicker": "THE END",
             "title": "Enzo is best because of how it was built.",
-            "body": "Simple plan. Willing to change. Easy to drive. Ready for the whole game.\n\nQuestions?",
+            "body": "Simple plan. Willing to change. Easy to drive. Ready for the whole game.",
             "notes": "Stop here and take questions.",
         },
     ]
