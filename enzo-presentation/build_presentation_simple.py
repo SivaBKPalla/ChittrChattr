@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Simpler PPTX: 9th-grade language, Google Slides friendly."""
+"""Plain-language PPTX for Google Slides / 9th grade."""
 
 from pathlib import Path
 
@@ -40,7 +40,6 @@ def add_text(slide, left, top, width, height, text, *, size=20, bold=False, colo
         run = p.add_run()
         run.text = line
         style(run, size=size, bold=bold, color=color)
-    return box
 
 
 def notes(slide, text):
@@ -55,70 +54,70 @@ def build() -> Path:
 
     slides = [
         {
-            "kicker": "TEAM 1577 STEAMPUNK  ·  FRC CRESCENDO",
+            "kicker": "TEAM 1577 STEAMPUNK  ·  ROBOT GAME: CRESCENDO",
             "title": "ENZO",
-            "body": "Why Enzo is the best robot in Crescendo\nA short talk about smart design  ·  about 5–7 minutes",
-            "notes": "Say the robot name clearly. This talk is about design, not scores.",
+            "body": "Why Enzo is the best robot in Crescendo\nA short talk about how it was built  ·  about 5 to 7 minutes",
+            "notes": "Say the robot name clearly. Talk about design, not scores.",
         },
         {
             "kicker": "WHO IS ENZO?",
             "title": "Meet the robot",
-            "body": "Enzo was built by FRC Team 1577, Steampunk, from Raanana, Israel.\n\nCrescendo is like a sports match for robots: pick up foam rings called Notes, score them, and climb at the end.\n\nWe’ll talk about how Enzo was designed — not about game scores.",
-            "notes": "Keep this short. Introduce the team and the game in plain words.",
+            "body": "High school students on Team 1577 (Steampunk) built Enzo in Raanana, Israel.\n\nCrescendo is a robot sports game. Robots pick up foam rings called Notes, score points, and climb at the end.\n\nWe’ll talk about how Enzo was built — not about game scores.",
+            "notes": "Keep this short and plain.",
         },
         {
-            "kicker": "THE CHALLENGE",
+            "kicker": "THE GAME",
             "title": "What robots had to do",
-            "body": "• Pick up Notes from the floor quickly\n• Shoot them into a big goal (the Speaker)\n• Also put Notes in a side goal (the Amp)\n• Climb onto a chain at the end of the match\n• Keep moving even when other robots get in the way",
-            "notes": "Explain Crescendo like explaining a new sport.",
+            "body": "• Pick up Notes from the floor fast\n• Shoot Notes into a big goal called the Speaker\n• Also put Notes in a side goal called the Amp\n• Climb a chain near the end of the match\n• Keep driving even when other robots block them",
+            "notes": "Explain the game like a new sport.",
         },
         {
             "kicker": "WHAT “BEST” MEANS",
-            "title": "Not flashiest — smartest",
-            "body": "• Has a clear plan for the whole game\n• Picks up and scores Notes smoothly\n• Can help the team in more than one way\n• Gets better when the team finds problems\n• Is easy for the drivers to control",
-            "notes": "These five points are our checklist for the rest of the talk.",
+            "title": "Not the flashiest — the smartest",
+            "body": "• Has a simple plan for the whole game\n• Picks up and scores Notes without drama\n• Can help its partners in more than one way\n• Gets fixed when something is wrong\n• Is easy for the drivers to use",
+            "notes": "These five points guide the rest of the talk.",
         },
         {
-            "kicker": "IMPROVING THE ROBOT",
-            "title": "They weren’t afraid to change it",
-            "body": "Midway through the season, the team rebuilt big parts of Enzo.\n\nThat means they listened to what wasn’t working and fixed it.\n\nGreat engineering looks like that — not giving up on the first idea.",
-            "notes": "Praise the rebuild as smart teamwork, without talking about results.",
+            "kicker": "MAKING IT BETTER",
+            "title": "They changed Enzo when they had to",
+            "body": "In the middle of the season, the team took Enzo apart and built big parts again.\n\nThat’s smart. Good teams don’t stick with a bad first idea. They fix the robot.",
+            "notes": "Praise fixing problems. No scores.",
         },
         {
-            "kicker": "PICKING UP GAME PIECES",
-            "title": "If you can’t grab Notes, you can’t score",
-            "body": "Enzo is built around getting Notes fast and keeping them under control.\n\nIn this game, owning the Notes is like owning the basketball.\n\nEnzo was made to take that job seriously.",
-            "notes": "Use the basketball comparison if it helps the class.",
+            "kicker": "PICKING UP NOTES",
+            "title": "No Notes = no points",
+            "body": "Enzo is built to grab Notes quickly and hold onto them.\n\nIn this game, having the Notes is like having the basketball.\n\nEnzo was made to win that fight.",
+            "notes": "Basketball comparison helps.",
         },
         {
-            "kicker": "SCORING",
-            "title": "Two ways to score, one robot",
-            "body": "• It can shoot into the Speaker for regular scoring\n• It can also score in the Amp to help its alliance\n• Drivers can pick the better option when the field is crowded\n• Being flexible is better than only being good at one thing",
-            "notes": "Stress flexibility in simple terms.",
+            "kicker": "SCORING POINTS",
+            "title": "Two ways to score",
+            "body": "• Shoot into the Speaker\n• Score in the Amp to help its partners\n• Drivers can choose the better option when it’s crowded\n• Doing both jobs is better than only doing one",
+            "notes": "Keep it simple: two scoring options.",
         },
         {
-            "kicker": "THE END OF THE MATCH",
-            "title": "Climbing without breaking the plan",
-            "body": "Some robots try so hard to climb that they get worse at scoring.\n\nEnzo stays strong at scoring during the match — and still can climb when it matters at the end.",
-            "notes": "Balance: score first, climb later — but both matter.",
+            "kicker": "END OF THE MATCH",
+            "title": "Climbing without messing up scoring",
+            "body": "Some robots focus so much on climbing that they get worse at scoring.\n\nEnzo stays good at scoring during the match, and it can still climb at the end.",
+            "notes": "Score during the match, climb at the end.",
         },
         {
-            "kicker": "DRIVING THE ROBOT",
-            "title": "Good code makes hard jobs feel easy",
-            "body": "• Helps the robot aim and score more consistently\n• Gives drivers clear controls instead of button chaos\n• Uses cameras and sensors so the robot “sees” the field\n• When drivers trust the robot, they can play smarter",
-            "notes": "Software = helpful tools for the human drivers.",
+            "kicker": "THE ROBOT’S COMPUTER CODE",
+            "title": "Good code makes driving easier",
+            "body": "• Helps the robot aim better\n• Gives drivers simple controls\n• Uses cameras so the robot can “see” the field\n• When drivers trust the robot, they play better",
+            "notes": "Code = the robot’s computer programs.",
         },
         {
-            "kicker": "THE BIG IDEA",
+            "kicker": "PUTTING IT TOGETHER",
             "title": "Why Enzo is the best",
-            "body": "1. Built for the whole Crescendo game, not just one trick\n2. The team rebuilt it when they needed to\n3. Focuses on grabbing and controlling Notes\n4. Can score in more than one way\n5. Software helps drivers do the hard parts",
-            "notes": "Slow down and hit each of the five points.",
+            "body": "1. Built for the whole game, not just one trick\n2. The team changed it when it needed changes\n3. Great at grabbing and holding Notes\n4. Can score in more than one way\n5. The code helps the drivers a lot",
+            "notes": "Slow down on each of the five points.",
         },
         {
-            "kicker": "WRAP-UP",
+            "kicker": "THE END",
             "title": "Enzo is best because of how it was built.",
-            "body": "Clear plan. Willing to improve. Easy to drive. Ready for the whole game.\n\nQuestions?",
-            "notes": "End here. Invite simple questions about design or the game.",
+            "body": "Simple plan. Willing to change. Easy to drive. Ready for the whole game.\n\nQuestions?",
+            "notes": "Stop here and take questions.",
         },
     ]
 
@@ -134,7 +133,7 @@ def build() -> Path:
             6.9,
             12,
             0.35,
-            f"ENZO  ·  FRC Crescendo  ·  Team 1577 Steampunk  ·  {i}/11",
+            f"ENZO  ·  Crescendo  ·  Team 1577 Steampunk  ·  {i}/11",
             size=11,
             color=MUTED,
         )
