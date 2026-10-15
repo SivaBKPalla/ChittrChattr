@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>ENZO — FRC Crescendo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #14161a;
+      --panel: #1e2228;
+      --brass: #c4964a;
+      --cream: #f2ebdf;
+      --muted: #a8a093;
+      --line: #3a342c;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: radial-gradient(120% 80% at 10% 0%, #2a2218 0%, var(--bg) 55%, #0d0f12 100%);
+      color: var(--cream);
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .deck {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      touch-action: pan-y;
+    }
+    .slide {
+      display: none;
+      height: 100%;
+      padding: max(20px, env(safe-area-inset-top)) 22px max(88px, env(safe-area-inset-bottom));
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+      animation: in 280ms ease;
+    }
+    .slide.active { display: flex; }
+    @keyframes in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+    .kicker {
+      color: var(--brass);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-family: Fraunces, Georgia, serif;
+      font-size: clamp(2rem, 8vw, 3.2rem);
+      line-height: 1.08;
+      margin: 0;
+      font-weight: 700;
+    }
+    h1.brand { color: var(--brass); font-size: clamp(3.4rem, 16vw, 5.5rem); }
+    .lead, p, li {
+      color: var(--cream);
+      font-size: clamp(1.1rem, 4.4vw, 1.3rem);
+      line-height: 1.4;
+      margin: 0;
+    }
+    .muted { color: var(--muted); }
+    ul {
+      margin: 0;
+      padding-left: 1.15rem;
+      display: grid;
+      gap: 0.85rem;
+    }
+    .cards {
+      display: grid;
+      gap: 10px;
+    }
+    .card {
+      background: color-mix(in srgb, var(--panel) 92%, black);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 14px 12px;
+    }
+    .card h3 {
+      margin: 0 0 6px;
+      color: var(--brass);
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.1rem;
+    }
+    .reasons {
+      display: grid;
+      gap: 12px;
+    }
+    .reason {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+    .num {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: var(--brass);
+      color: var(--bg);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 12px 16px max(16px, env(safe-area-inset-bottom));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: linear-gradient(to top, rgba(10,11,13,.96), rgba(10,11,13,.55) 70%, transparent);
+      backdrop-filter: blur(6px);
+    }
+    .progress {
+      flex: 1;
+      height: 4px;
+      background: #2c2a26;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress > span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: var(--brass);
+      transition: width 200ms ease;
+    }
+    button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--cream);
+      border-radius: 999px;
+      padding: 10px 16px;
+      font: inherit;
+      font-weight: 600;
+      min-width: 84px;
+    }
+    button:disabled { opacity: 0.35; }
+    button.primary {
+      background: var(--brass);
+      color: #14161a;
+      border-color: transparent;
+    }
+    .hint {
+      position: fixed;
+      top: max(12px, env(safe-area-inset-top));
+      right: 14px;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+    .count {
+      min-width: 3.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="hint">Tap / swipe</div>
+  <div class="deck" id="deck">
+    <section class="slide active">
+      <div class="kicker">Team 1577 Steampunk · Robot Game: Crescendo</div>
+      <h1 class="brand">ENZO</h1>
+      <p class="lead">Why Enzo is the best robot in Crescendo</p>
+      <p class="muted">A short talk about how it was built · about 5 to 7 minutes</p>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Who is Enzo?</div>
+      <h1>Meet the robot</h1>
+      <div class="cards">
+        <div class="card"><h3>The team</h3><p>High school students on Team 1577 (Steampunk) built Enzo in Raanana, Israel.</p></div>
+        <div class="card"><h3>The game</h3><p>Crescendo is a robot sports game. Robots pick up foam rings called Notes, score points, and climb at the end.</p></div>
+        <div class="card"><h3>What we’ll talk about</h3><p>How Enzo was built and why that design is so good. Not game scores.</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">The game</div>
+      <h1>What robots had to do</h1>
+      <ul>
+        <li>Pick up Notes from the floor fast</li>
+        <li>Shoot Notes into a big goal called the Speaker</li>
+        <li>Also put Notes in a side goal called the Amp</li>
+        <li>Climb a chain near the end of the match</li>
+        <li>Keep driving even when other robots block them</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">What “best” means</div>
+      <h1>Not the flashiest — the smartest</h1>
+      <ul>
+        <li>Has a simple plan for the whole game</li>
+        <li>Picks up and scores Notes without drama</li>
+        <li>Can help its partners in more than one way</li>
+        <li>Gets fixed when something is wrong</li>
+        <li>Is easy for the drivers to use</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Making it better</div>
+      <h1>They changed Enzo when they had to</h1>
+      <p>In the middle of the season, the team took Enzo apart and built big parts again.</p>
+      <p class="muted">That’s smart. Good teams don’t stick with a bad first idea. They fix the robot.</p>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Picking up Notes</div>
+      <h1>No Notes = no points</h1>
+      <p>Enzo is built to grab Notes quickly and hold onto them.</p>
+      <p class="muted">In this game, having the Notes is like having the basketball. Enzo was made to win that fight.</p>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Scoring points</div>
+      <h1>Two ways to score</h1>
+      <ul>
+        <li>Shoot into the Speaker</li>
+        <li>Score in the Amp to help its partners</li>
+        <li>Drivers can choose the better option when it’s crowded</li>
+        <li>Doing both jobs is better than only doing one</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">End of the match</div>
+      <h1>Climbing without messing up scoring</h1>
+      <p>Some robots focus so much on climbing that they get worse at scoring.</p>
+      <p class="muted">Enzo stays good at scoring during the match, and it can still climb at the end.</p>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">The robot’s computer code</div>
+      <h1>Good code makes driving easier</h1>
+      <ul>
+        <li>Helps the robot aim better</li>
+        <li>Gives drivers simple controls</li>
+        <li>Uses cameras so the robot can “see” the field</li>
+        <li>When drivers trust the robot, they play better</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Putting it together</div>
+      <h1>Why Enzo is the best</h1>
+      <div class="reasons">
+        <div class="reason"><div class="num">1</div><p>Built for the whole game, not just one trick</p></div>
+        <div class="reason"><div class="num">2</div><p>The team changed it when it needed changes</p></div>
+        <div class="reason"><div class="num">3</div><p>Great at grabbing and holding Notes</p></div>
+        <div class="reason"><div class="num">4</div><p>Can score in more than one way</p></div>
+        <div class="reason"><div class="num">5</div><p>The code helps the drivers a lot</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">The end</div>
+      <h1>Enzo is best because of how it was built.</h1>
+      <p class="muted">Simple plan. Willing to change. Easy to drive. Ready for the whole game.</p>
+      <p style="color:var(--brass);font-family:Fraunces,Georgia,serif;font-size:1.4rem;margin-top:8px;">Questions?</p>
+    </section>
+  </div>
+
+  <div class="bar">
+    <button id="prev" type="button">Back</button>
+    <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+    <div class="count" id="count">1 / 11</div>
+    <button id="next" class="primary" type="button">Next</button>
+  </div>
+
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    let i = 0;
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    const count = document.getElementById('count');
+    const bar = document.getElementById('bar');
+
+    function show(n) {
+      i = Math.max(0, Math.min(slides.length - 1, n));
+      slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+      prev.disabled = i === 0;
+      next.textContent = i === slides.length - 1 ? 'Done' : 'Next';
+      count.textContent = `${i + 1} / ${slides.length}`;
+      bar.style.width = `${((i + 1) / slides.length) * 100}%`;
+    }
+
+    prev.addEventListener('click', () => show(i - 1));
+    next.addEventListener('click', () => {
+      if (i === slides.length - 1) return;
+      show(i + 1);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') show(i + 1);
+      if (e.key === 'ArrowLeft') show(i - 1);
+    });
+
+    let x0 = null;
+    document.getElementById('deck').addEventListener('touchstart', (e) => {
+      x0 = e.changedTouches[0].clientX;
+    }, { passive: true });
+    document.getElementById('deck').addEventListener('touchend', (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1));
+      x0 = null;
+    }, { passive: true });
+
+    show(0);
+  </script>
+</body>
+</html>
